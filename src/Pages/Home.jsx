@@ -1,15 +1,43 @@
+import { useNavigate } from "react-router-dom";
+
 import Header from "../Components/Header";
 
 import Textura100 from "../assets/TexturaPapelFull.png";
 import Textura20 from "../assets/TexturaPapel.png";
 import Logo from "../assets/LogoGrande.png";
+
 import BannerShot from "../assets/BannerShot.png";
+import BlueShot from "../assets/BlueShot.png";
+
 import Bebidas from "../assets/bebidas.png";
+import Shots from "../assets/Shots.png";
+import Snacks from "../assets/Snacks.png";
+
+import Cocktail from "../assets/Cocktail.png";
+import ShotIcon from "../assets/VodkaShot.png";
+import SnackIcon from "../assets/SnacksIcon.png";
+import Carousel from "../Components/Carousel";
 
 const Home = () => {
+  const navigate = useNavigate();
+
   return (
     <>
       <Header />
+
+      <div
+        style={{
+          width: "100vw",
+          overflow: "hidden",
+          zIndex: "9",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Carousel slides={[BannerShot, BlueShot]} />
+      </div>
+
       <div
         style={{
           backgroundImage: `url(${Textura20})`,
@@ -22,14 +50,9 @@ const Home = () => {
           alignItems: "center",
           flexDirection: "column",
           gap: "30px",
+          marginTop: "-10px",
         }}
       >
-        <img
-          style={{ width: "100vw", objectFit: "contain" }}
-          src={BannerShot}
-          alt="BannerShot"
-        ></img>
-
         <div
           style={{
             display: "flex",
@@ -116,23 +139,178 @@ const Home = () => {
           </div>
 
           <div
-            style={{ display: "flex", flexDirection: "column", gap: "10px" }}
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "10px",
+              alignItems: "center",
+              marginTop: "50px",
+              marginBottom: "50px",
+            }}
           >
             <img
               style={{
                 width: "300px",
 
                 borderRadius: "10px",
-                boxShadow: "0px 0px 10px 0px rgba(0,0,0,0.75)",
               }}
               src={Bebidas}
               alt="Bebidas"
             />
 
-            <h3>BEBIDAS</h3>
-            <p>Descripción</p>
-            <button>Comprar</button>
+            <img
+              style={{ width: "90px", borderRadius: "10px" }}
+              src={Cocktail}
+              alt="Cocktail"
+            />
+            <h3 style={{ margin: "0px" }}>BEBIDAS</h3>
+            <p style={{ width: "80vw" }}>
+              Nuestra selección de bebidas es insuperable. Ofrecemos una amplia
+              gama de opciones, incluyendo cócteles artesanales, bebidas sin
+              alcohol y refrescantes mezclas. Cada bebida es elaborada con los
+              mejores ingredientes, asegurando una experiencia de sabor
+              inigualable.
+            </p>
+            <button
+              style={{
+                fontSize: "24px",
+                padding: "10px 20px",
+
+                borderRadius: "10px",
+
+                border: "none",
+
+                backgroundColor: "#F096FF",
+                color: "white",
+
+                cursor: "pointer",
+                boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+              }}
+              onClick={() => {
+                navigate("/bebidas");
+              }}
+            >
+              Contratar
+            </button>
           </div>
+
+          <hr style={{ width: "60vw", border: "1px solid black" }} />
+
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "10px",
+              alignItems: "center",
+              marginTop: "50px",
+              marginBottom: "50px",
+            }}
+          >
+            <img
+              style={{
+                width: "300px",
+
+                borderRadius: "10px",
+              }}
+              src={Shots}
+              alt="Bebidas"
+            />
+
+            <img
+              style={{ width: "90px", borderRadius: "10px" }}
+              src={ShotIcon}
+              alt="Cocktail"
+            />
+            <h3 style={{ margin: "0px" }}>SHOTS</h3>
+            <p style={{ width: "80vw" }}>
+              Nuestra barra de shots es el corazón de la fiesta. Ofrecemos una
+              selección variada de shots, desde los clásicos hasta creaciones
+              exclusivas, todos elaborados con los mejores ingredientes. ¡Haz
+              que tus eventos sean inolvidables con nuestra energía y
+              creatividad!
+            </p>
+            <button
+              style={{
+                fontSize: "24px",
+                padding: "10px 20px",
+
+                borderRadius: "10px",
+
+                border: "none",
+
+                backgroundColor: "#F096FF",
+                color: "white",
+
+                cursor: "pointer",
+                boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+              }}
+              onClick={() => {
+                navigate("/shots");
+              }}
+            >
+              Contratar
+            </button>
+          </div>
+
+          <hr style={{ width: "60vw", border: "1px solid black" }} />
+
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "10px",
+              alignItems: "center",
+              marginTop: "50px",
+              marginBottom: "50px",
+            }}
+          >
+            <img
+              style={{
+                width: "300px",
+
+                borderRadius: "10px",
+              }}
+              src={Snacks}
+              alt="Bebidas"
+            />
+
+            <img
+              style={{ width: "90px", borderRadius: "10px" }}
+              src={SnackIcon}
+              alt="Cocktail"
+            />
+            <h3 style={{ margin: "0px" }}>SNACKS</h3>
+            <p style={{ width: "80vw" }}>
+              Disfruta de nuestros exquisitos snacks, perfectos para cualquier
+              tipo de evento. Ya sea que prefieras algo salado, dulce o una
+              mezcla de ambos, tenemos lo que necesitas.
+            </p>
+            <button
+              style={{
+                fontSize: "24px",
+                padding: "10px 20px",
+
+                borderRadius: "10px",
+
+                border: "none",
+
+                backgroundColor: "#F096FF",
+                color: "white",
+
+                cursor: "pointer",
+                boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+              }}
+              onClick={() => {
+                navigate("/snacks");
+              }}
+            >
+              Contratar
+            </button>
+          </div>
+        </div>
+
+        <div>
+          <h2>Reseñas</h2>
         </div>
       </div>
     </>
