@@ -21,6 +21,13 @@ import Carousel from "../Components/Carousel";
 const Home = () => {
   const navigate = useNavigate();
 
+  const scrollToElement = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <>
       <Header />
@@ -87,9 +94,24 @@ const Home = () => {
               alignItems: "center",
             }}
           >
-            <a>SNACKS</a>
-            <a>SHOTS</a>
-            <a>BEBIDAS</a>
+            <a
+              style={{ color: "black" }}
+              onClick={() => scrollToElement("snacks")}
+            >
+              SNACKS
+            </a>
+            <a
+              style={{ color: "black" }}
+              onClick={() => scrollToElement("shots")}
+            >
+              SHOTS
+            </a>
+            <a
+              style={{ color: "black" }}
+              onClick={() => scrollToElement("bebidas")}
+            >
+              BEBIDAS
+            </a>
           </nav>
         </div>
 
@@ -128,7 +150,9 @@ const Home = () => {
           }}
         >
           <div style={{ marginTop: "50px" }}>
-            <h2 style={{ fontSize: "40px", margin: "0px" }}>Servicios</h2>
+            <h2 id="bebidas" style={{ fontSize: "40px", margin: "0px" }}>
+              Servicios
+            </h2>
             <hr
               style={{
                 width: "60vw",
@@ -194,7 +218,7 @@ const Home = () => {
             </button>
           </div>
 
-          <hr style={{ width: "60vw", border: "1px solid black" }} />
+          <hr id="shots" style={{ width: "60vw", border: "1px solid black" }} />
 
           <div
             style={{
@@ -252,7 +276,10 @@ const Home = () => {
             </button>
           </div>
 
-          <hr style={{ width: "60vw", border: "1px solid black" }} />
+          <hr
+            id="snacks"
+            style={{ width: "60vw", border: "1px solid black" }}
+          />
 
           <div
             style={{

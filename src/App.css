@@ -5,3 +5,72 @@
   max-width: 1920px;
   margin: "0px";
 }
+
+.fondo-snacks {
+  background-color: #f0f0f0;
+  background-image: url("./assets/fondomenu.png");
+  width: 100vw;
+
+  background-position: center;
+  object-fit: contain;
+  background-color: transparent;
+}
+
+.menu-snacks {
+}
+
+.snacks-list {
+  white-space: nowrap;
+  background-color: white;
+
+  padding-left: 60px;
+  padding-right: 60px;
+
+  padding-bottom: 20px;
+  border-radius: 20px;
+
+  box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.1);
+
+  width: 50vw;
+  text-align: left;
+}
+
+.lista-snacks {
+  white-space: nowrap;
+  background: rgba(
+    255,
+    255,
+    255,
+    0.2
+  ); /* Semi-transparent white background for glass effect */
+  padding-left: 60px;
+  padding-right: 60px;
+  padding-bottom: 20px;
+  border-radius: 20px;
+  box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for a raised effect */
+  width: 50vw;
+  text-align: left;
+
+  backdrop-filter: blur(10px); /* Apply blur for the frosted glass effect */
+  -webkit-backdrop-filter: blur(10px); /* Safari compatibility */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Light border to enhance the glass effect */
+}
+
+.snacks-title {
+  font-size: 84px;
+  font-weight: 900; /* Make text bold */
+  background-image: url("./assets/SnacksTitulo.png"); /* Replace with the path to your image */
+  color: #f2dcdc3b; /* Make text color transparent */
+  -webkit-background-clip: text; /* Clip background to text in WebKit browsers */
+  background-clip: text; /* Clip background to text */
+  text-fill-color: transparent;
+  object-fit: contain;
+  background-size: contain; /* Ensure the image covers the text area */
+  background-position: center; /* Center the image within the text */
+}
+
+@media (max-width: 383px) {
+  .snacks-title {
+    font-size: 60px;
+  }
+}
