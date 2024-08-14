@@ -16,9 +16,6 @@
   background-color: transparent;
 }
 
-.menu-snacks {
-}
-
 .snacks-list {
   white-space: nowrap;
   background-color: white;
@@ -35,12 +32,24 @@
   text-align: left;
 }
 
+.snacks-select option {
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  border-radius: 10px;
+  border: none;
+  padding: 10px;
+  font-size: 17px;
+  font-weight: 500;
+}
+
 .lista-snacks {
+  max-width: 500px;
+
   white-space: nowrap;
   background: rgba(
-    255,
-    255,
-    255,
+    185,
+    185,
+    185,
     0.2
   ); /* Semi-transparent white background for glass effect */
   padding-left: 60px;
@@ -56,6 +65,35 @@
   border: 1px solid rgba(255, 255, 255, 0.3); /* Light border to enhance the glass effect */
 }
 
+.shots-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 150px);
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 30px;
+  width: 90vw;
+  margin: 40px auto 40px;
+  justify-items: center;
+}
+
+.shots-card {
+  max-width: 300px;
+
+  white-space: nowrap;
+  background: rgba(
+    255,
+    255,
+    255,
+    0.2
+  ); /* Semi-transparent white background for glass effect */
+
+  border-radius: 20px;
+  box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for a raised effect */
+
+  backdrop-filter: blur(10px); /* Apply blur for the frosted glass effect */
+  -webkit-backdrop-filter: blur(10px); /* Safari compatibility */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Light border to enhance the glass effect */
+}
+
 .snacks-title {
   font-size: 84px;
   font-weight: 900; /* Make text bold */
@@ -63,14 +101,63 @@
   color: #f2dcdc3b; /* Make text color transparent */
   -webkit-background-clip: text; /* Clip background to text in WebKit browsers */
   background-clip: text; /* Clip background to text */
-  text-fill-color: transparent;
+  object-fit: contain;
+  background-size: contain; /* Ensure the image covers the text area */
+  background-position: center; /* Center the image within the text */
+}
+.shots-title {
+  font-size: 84px;
+  font-weight: 900; /* Make text bold */
+  background-image: url("./assets/LetrasShots.png"); /* Replace with the path to your image */
+  color: #f2dcdc3b; /* Make text color transparent */
+  -webkit-background-clip: text; /* Clip background to text in WebKit browsers */
+  background-clip: text; /* Clip background to text */
   object-fit: contain;
   background-size: contain; /* Ensure the image covers the text area */
   background-position: center; /* Center the image within the text */
 }
 
+.bebidas-title {
+  font-size: 84px;
+  font-weight: 900; /* Make text bold */
+  background-image: url("./assets/FondoBebidas.png"); /* Replace with the path to your image */
+  color: #f2dcdc3b; /* Make text color transparent */
+  -webkit-background-clip: text; /* Clip background to text in WebKit browsers */
+  background-clip: text; /* Clip background to text */
+  object-fit: contain;
+  background-size: contain; /* Ensure the image covers the text area */
+  background-position: center; /* Center the image within the text */
+}
+
+.botton-agregar-mobile {
+  gap: 40px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+  position: sticky;
+  bottom: 20px;
+  z-index: 1;
+}
+
+.carrito-agregar-servicio option {
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  border-radius: 10px;
+  border: none;
+  padding: 10px;
+  font-size: 17px;
+  font-weight: 500;
+}
+
 @media (max-width: 383px) {
   .snacks-title {
+    font-size: 60px;
+  }
+  .shots-title {
+    font-size: 60px;
+  }
+  .bebidas-title {
     font-size: 60px;
   }
 }

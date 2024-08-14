@@ -1,6 +1,10 @@
 import Logo from "../assets/LogoJoli.jpg";
+import { useNavigate } from "react-router-dom";
+import { useCart } from "../Contexts/CartContext";
 
 const Header = () => {
+  const { cart, cartCount } = useCart();
+  const navigate = useNavigate();
   return (
     <header
       style={{
@@ -17,6 +21,11 @@ const Header = () => {
         paddingBottom: "10px",
         paddingLeft: "20px",
         paddingRight: "20px",
+
+        position: "sticky",
+        top: "0",
+
+        zIndex: "10",
       }}
     >
       <i className="material-icons">menu</i>
@@ -27,11 +36,12 @@ const Header = () => {
           objectFit: "contain",
           borderRadius: "50%",
         }}
+        onClick={() => navigate("/")}
         src={Logo}
         alt="Logo"
       />
 
-      <div>
+      <div onClick={() => navigate("/carrito")}>
         {" "}
         <i className="material-icons">shopping_bag</i>
         <sub
@@ -50,7 +60,7 @@ const Header = () => {
             fontSize: "10px",
           }}
         >
-          0{" "}
+          {cartCount && cartCount}
         </sub>
       </div>
     </header>
