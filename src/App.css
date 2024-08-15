@@ -79,15 +79,8 @@
   max-width: 300px;
 
   white-space: nowrap;
-  background: rgba(
-    255,
-    255,
-    255,
-    0.2
-  ); /* Semi-transparent white background for glass effect */
-
+  background: rgba(255, 255, 255, 0.2);
   border-radius: 20px;
-  box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for a raised effect */
 
   backdrop-filter: blur(10px); /* Apply blur for the frosted glass effect */
   -webkit-backdrop-filter: blur(10px); /* Safari compatibility */

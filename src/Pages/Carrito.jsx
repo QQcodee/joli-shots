@@ -11,6 +11,8 @@ const Carrito = () => {
 
   const { cart, cartCount, addItem, removeItem, clearCart } = useCart();
   const navigate = useNavigate();
+
+  console.log(cart);
   return (
     <>
       <Header />
@@ -123,7 +125,13 @@ const Carrito = () => {
                 }}
               >
                 <strong>{item.servicio}</strong> <br /> <br />
-                Cantidad: {item.descipcion} <br></br>{" "}
+                Cantidad: {item.descipcion} <br /> <br />{" "}
+                {item.saboresHappy ? "Sabores Happy: " + item.saboresHappy : ""}{" "}
+                <br /> <br />
+                {item.saboresPremium
+                  ? "Sabores Premium: " + item.saboresPremium
+                  : ""}{" "}
+                <br /> <br />
                 <strong>Precio: ${item.precio}</strong>
               </p>
             </div>
