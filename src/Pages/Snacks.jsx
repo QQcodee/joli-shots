@@ -41,8 +41,6 @@ const Snacks = () => {
 
           justifyContent: "center",
           alignItems: "center",
-
-          boxShadow: "0 0 10px 10px rgba(0, 0, 0, 0.2)",
         }}
       >
         <div
@@ -120,27 +118,12 @@ const Snacks = () => {
             style={{ width: "20vw", height: "2px", backgroundColor: "black" }}
           />
 
-          <div
-            style={{
-              textAlign: "center",
-
-              color: "black",
-              width: "max-content",
-              display: "flex",
-              alignItems: "flex-start",
-              flexDirection: "column",
-              justifyContent: "center",
-              position: "relative",
-              zIndex: "1",
-              left: "50%",
-              transform: "translateX(-50%)",
-            }}
-            className="menu-snacks"
-          >
+          <div className="menu-snacks">
             <div
               style={{
                 display: "flex",
                 justifyContent: "center",
+                width: "350px",
               }}
             >
               <ul className="lista-snacks">
@@ -170,6 +153,7 @@ const Snacks = () => {
               style={{
                 display: "flex",
                 justifyContent: "center",
+                width: "350px",
               }}
             >
               <ul className="lista-snacks">
@@ -198,8 +182,7 @@ const Snacks = () => {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-
-                marginBottom: "40px",
+                width: "350px",
               }}
             >
               <ul className="lista-snacks">

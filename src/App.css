@@ -8,12 +8,17 @@
 
 .fondo-snacks {
   background-color: #f0f0f0;
-  background-image: url("./assets/fondomenu.png");
-  width: 100vw;
 
-  background-position: center;
-  object-fit: contain;
+  width: 100vw;
+  height: 600px;
+
+  background-image: url("./assets/TexturaSnacks.png");
+
+  background-position: middle;
+  object-fit: cover;
+
   background-color: transparent;
+  background-repeat: repeat;
 }
 
 .snacks-list {
@@ -29,6 +34,7 @@
   box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.1);
 
   width: 50vw;
+
   text-align: left;
 }
 
@@ -43,25 +49,26 @@
 }
 
 .lista-snacks {
-  max-width: 500px;
+  overflow: hidden;
 
   white-space: nowrap;
   background: rgba(
-    185,
-    185,
-    185,
-    0.2
+    255,
+    255,
+    255,
+    0.699
   ); /* Semi-transparent white background for glass effect */
   padding-left: 60px;
   padding-right: 60px;
-  padding-bottom: 20px;
+  padding-bottom: 60px;
   border-radius: 20px;
   box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for a raised effect */
-  width: 50vw;
-  text-align: left;
 
-  backdrop-filter: blur(10px); /* Apply blur for the frosted glass effect */
-  -webkit-backdrop-filter: blur(10px); /* Safari compatibility */
+  text-align: left;
+  height: 250px;
+
+  backdrop-filter: blur(17px); /* Apply blur for the frosted glass effect */
+  -webkit-backdrop-filter: blur(17px); /* Safari compatibility */
   border: 1px solid rgba(255, 255, 255, 0.3); /* Light border to enhance the glass effect */
 }
 
@@ -141,6 +148,72 @@
   padding: 10px;
   font-size: 17px;
   font-weight: 500;
+}
+
+.menu-snacks {
+  text-align: center;
+  color: black;
+  width: max-content;
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 60px;
+}
+
+@media (max-width: 1090px) {
+  .menu-snacks {
+    text-align: center;
+    color: black;
+    width: max-content;
+    display: flex;
+    flex-direction: column;
+
+    align-items: flex-start;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 500px) {
+  .fondo-snacks {
+    background-color: #f0f0f0;
+    background-image: url("./assets/TexturaSnacks.png");
+    width: 100vw;
+    height: 100%;
+
+    background-position: bottom;
+    object-fit: cover;
+
+    background-color: transparent;
+    background-repeat: repeat;
+  }
+
+  .menu-snacks {
+    text-align: center;
+    color: black;
+    width: max-content;
+    display: flex;
+    flex-direction: column;
+    height: max-content;
+
+    align-items: flex-start;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .lista-snacks {
+    height: max-content;
+  }
 }
 
 @media (max-width: 383px) {

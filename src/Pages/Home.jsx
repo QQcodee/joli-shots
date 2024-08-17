@@ -35,6 +35,9 @@ const Home = () => {
       <div
         style={{
           width: "100vw",
+          height: "auto",
+          maxHeight: "630px",
+
           overflow: "hidden",
           zIndex: "9",
           display: "flex",

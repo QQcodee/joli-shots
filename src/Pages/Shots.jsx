@@ -13,6 +13,10 @@ const Shots = () => {
   const [cantidad, setCantidad] = useState(0);
   const [price, setPrice] = useState(0);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const [shotsPremium, setShotsPremium] = useState([
     {
       nombre: "Winnis",
@@ -228,6 +232,9 @@ const Shots = () => {
 
   const maxSeleccionadosHappy = cantidadHappy;
 
+  const [seleccionadosPremium, setSeleccionadosPremium] = useState(0);
+  const [seleccionadosHappy, setSeleccionadosHappy] = useState(0);
+
   const handleShotClick = (index) => {
     setShotsPremium((prevShots) => {
       const updatedShots = [...prevShots];
@@ -240,10 +247,20 @@ const Shots = () => {
       if (shot.seleccionado) {
         // If the shot is already selected, simply deselect it
         updatedShots[index] = { ...shot, seleccionado: false };
+        const currentlySelected = updatedShots.filter(
+          (shot) => shot.seleccionado
+        ).length;
+
+        setSeleccionadosPremium(currentlySelected);
       } else {
         // If the shot is not selected and the limit is not reached, select it
         if (currentlySelected < maxSeleccionados) {
           updatedShots[index] = { ...shot, seleccionado: true };
+          const currentlySelected = updatedShots.filter(
+            (shot) => shot.seleccionado
+          ).length;
+
+          setSeleccionadosPremium(currentlySelected);
         } else {
           alert("Maximo alcanzado");
         }
@@ -265,10 +282,18 @@ const Shots = () => {
       if (shot.seleccionado) {
         // If the shot is already selected, simply deselect it
         updatedShots[index] = { ...shot, seleccionado: false };
+        const currentlySelected = updatedShots.filter(
+          (shot) => shot.seleccionado
+        ).length;
+        setSeleccionadosHappy(currentlySelected);
       } else {
         // If the shot is not selected and the limit is not reached, select it
         if (currentlySelected < maxSeleccionadosHappy) {
           updatedShots[index] = { ...shot, seleccionado: true };
+          const currentlySelected = updatedShots.filter(
+            (shot) => shot.seleccionado
+          ).length;
+          setSeleccionadosHappy(currentlySelected);
         } else {
           alert("Maximo alcanzado");
         }
@@ -284,6 +309,17 @@ const Shots = () => {
       element.scrollIntoView({ behavior: "smooth" });
     }
   };
+
+  const [tipoPaquete, setPaquete] = useState(0);
+
+  useEffect(() => {
+    if (cantidadPremium && cantidadHappy > 0) {
+      setPaquete("PaqueteHappy");
+    }
+    if (cantidadPremium > 0 && isNaN(cantidadHappy)) {
+      setPaquete("PaquetePremium");
+    }
+  }, [cantidadPremium, cantidadHappy]);
 
   return (
     <>
@@ -466,7 +502,10 @@ const Shots = () => {
             }}
           >
             {" "}
-            Elige {cantidadPremium === 0 ? "Elige un paquete" : cantidadPremium}
+            Elige{" "}
+            {cantidadPremium === 0
+              ? "un paquete para poder elegir shots"
+              : "hasta " + cantidadPremium + " sabores"}
           </p>
 
           <div className="shots-grid">
@@ -533,104 +572,119 @@ const Shots = () => {
             ))}
           </div>
 
-          <p
-            style={{
-              fontSize: "24px",
-              fontWeight: "800",
-              margin: "0px",
-              marginTop: "60px",
+          {cantidad > 0 && isNaN(cantidadHappy) ? null : (
+            <>
+              <p
+                style={{
+                  fontSize: "24px",
+                  fontWeight: "800",
+                  margin: "0px",
+                  marginTop: "60px",
 
-              textAlign: "center",
-            }}
-          >
-            {" "}
-            Shots Happy
-          </p>
+                  textAlign: "center",
+                }}
+              >
+                {" "}
+                Shots Happy
+              </p>
 
-          <p
-            style={{
-              fontSize: "24px",
-              fontWeight: "500",
-              margin: "0px",
-              marginTop: "20px",
+              <p
+                style={{
+                  fontSize: "24px",
+                  fontWeight: "500",
+                  margin: "0px",
+                  marginTop: "20px",
 
-              textAlign: "center",
-            }}
-          >
-            {" "}
-            Elige{" "}
-            {cantidadHappy < 1 || isNaN(cantidadHappy)
-              ? "un paquete"
-              : cantidadHappy}
-          </p>
+                  textAlign: "center",
+                }}
+              >
+                {" "}
+                Elige{" "}
+                {cantidadHappy < 1 || isNaN(cantidadHappy)
+                  ? "un paquete para poder elegir shots"
+                  : "hasta " + cantidadHappy + " sabores"}
+              </p>
+            </>
+          )}
 
           <div className="shots-grid">
-            {shotsHappy.map((shot, index) => (
-              <>
-                <div
-                  key={index}
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    boxShadow:
-                      shot.seleccionado === true
-                        ? "0px 0px 10px 5px rgba(78, 189, 120, 0.5)"
-                        : "0 0 4px 4px rgba(0, 0, 0, 0.1)",
+            {cantidad > 0 && isNaN(cantidadHappy)
+              ? null
+              : shotsHappy.map((shot, index) => (
+                  <>
+                    <div
+                      key={index}
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        boxShadow:
+                          shot.seleccionado === true
+                            ? "0px 0px 10px 5px rgba(78, 189, 120, 0.5)"
+                            : "0 0 4px 4px rgba(0, 0, 0, 0.1)",
 
-                    width: "150px",
-                    height: "max-content",
-                  }}
-                  onClick={() => {
-                    if (cantidadHappy === 0) {
-                      return;
-                    }
-                    handleShotClickHappy(index);
-                  }}
-                  className="shots-card"
-                >
-                  {" "}
-                  <div
-                    key={index}
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "center",
-                      justifyContent: "center",
-                    }}
-                  >
-                    <img
-                      style={{ width: "120px" }}
-                      src={shot.img}
-                      alt={shot.alt}
-                    />
-                    <strong>{shot.nombre}</strong>
-                  </div>
-                  <ul
-                    style={{
-                      textAlign: "left",
-                      marginLeft: "15px",
-                    }}
-                  >
-                    {shot.ingredientes.map((ingrediente, index) => (
-                      <li
+                        width: "150px",
+                        height: "max-content",
+                      }}
+                      onClick={() => {
+                        if (cantidadHappy === 0) {
+                          return;
+                        }
+                        handleShotClickHappy(index);
+                      }}
+                      className="shots-card"
+                    >
+                      {" "}
+                      <div
                         key={index}
                         style={{
-                          fontSize: "15px",
-                          fontWeight: "300",
+                          display: "flex",
+                          flexDirection: "column",
+                          alignItems: "center",
+                          justifyContent: "center",
                         }}
                       >
-                        {ingrediente}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </>
-            ))}
+                        <img
+                          style={{ width: "120px" }}
+                          src={shot.img}
+                          alt={shot.alt}
+                        />
+                        <strong>{shot.nombre}</strong>
+                      </div>
+                      <ul
+                        style={{
+                          textAlign: "left",
+                          marginLeft: "15px",
+                        }}
+                      >
+                        {shot.ingredientes.map((ingrediente, index) => (
+                          <li
+                            key={index}
+                            style={{
+                              fontSize: "15px",
+                              fontWeight: "300",
+                            }}
+                          >
+                            {ingrediente}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </>
+                ))}
           </div>
         </div>
 
         <div
-          style={{ display: cantidad < 1 ? "none" : "flex" }}
+          style={{
+            display:
+              tipoPaquete === "PaquetePremium" && seleccionadosPremium > 0
+                ? "flex"
+                : tipoPaquete === "PaqueteHappy" &&
+                  seleccionadosHappy > 0 &&
+                  seleccionadosPremium > 0
+                ? "flex"
+                : "none",
+          }}
           className="botton-agregar-mobile"
         >
           <button
