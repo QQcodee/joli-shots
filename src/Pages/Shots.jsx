@@ -523,6 +523,7 @@ const Shots = () => {
 
                     width: "150px",
                     height: "max-content",
+                    backgroundColor: "white",
                   }}
                   onClick={() => {
                     if (cantidadPremium === 0) {
@@ -624,6 +625,7 @@ const Shots = () => {
 
                         width: "150px",
                         height: "max-content",
+                        backgroundColor: "white",
                       }}
                       onClick={() => {
                         if (cantidadHappy === 0) {
