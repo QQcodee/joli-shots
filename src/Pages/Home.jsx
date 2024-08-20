@@ -118,7 +118,13 @@ const Home = () => {
           </nav>
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr",
+            width: "100vw",
+          }}
+        >
           <div
             style={{ width: "50vw", height: "200px", backgroundColor: "red" }}
           ></div>

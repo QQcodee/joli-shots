@@ -10,8 +10,6 @@ const Header = () => {
       style={{
         backgroundColor: "black",
 
-        width: "100vw",
-
         height: "60px",
 
         display: "flex",
