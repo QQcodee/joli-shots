@@ -156,7 +156,11 @@ const Carrito = () => {
             width: "80vw",
             boxShadow: "0px 0px 4px 4px rgba(0, 0, 0, 0.1)",
           }}
-          onClick={() => window.open("http://raffly.com.mx", "_blank")}
+          onClick={() =>
+            window.open(
+              "https://api.whatsapp.com/send/?phone=+14328886121&text=Modo prueba"
+            )
+          }
         >
           Confirmar Orden <br />
           Total: ${cart.reduce((acc, item) => acc + item.precio, 0)}

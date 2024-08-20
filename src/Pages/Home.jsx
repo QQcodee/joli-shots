@@ -18,6 +18,10 @@ import ShotIcon from "../assets/VodkaShot.png";
 import SnackIcon from "../assets/SnacksIcon.png";
 import Carousel from "../Components/Carousel";
 
+import ShotsMorra from "../assets/morrashots.png";
+import EventoShots from "../assets/eventoshots.png";
+import Cherrs from "../assets/cheers.png";
+
 const Home = () => {
   const navigate = useNavigate();
 
@@ -34,7 +38,6 @@ const Home = () => {
 
       <div
         style={{
-          width: "100vw",
           height: "auto",
           maxHeight: "630px",
 
@@ -51,9 +54,6 @@ const Home = () => {
       <div
         style={{
           backgroundImage: `url(${Textura20})`,
-
-          height: "100vh",
-          width: "100vw",
 
           display: "flex",
 
@@ -123,28 +123,66 @@ const Home = () => {
             display: "grid",
             gridTemplateColumns: "1fr 1fr",
             width: "100vw",
+            maxWidth: "800px",
+            overflow: "hidden",
           }}
         >
           <div
-            style={{ width: "50vw", height: "200px", backgroundColor: "red" }}
-          ></div>
+            style={{
+              width: "100%",
+              height: "200px",
+            }}
+          >
+            <img
+              style={{ width: "100%", height: "auto", objectFit: "contain" }}
+              src={ShotsMorra}
+            />
+          </div>
           <div
-            style={{ width: "50vw", height: "200px", backgroundColor: "blue" }}
-          ></div>
-          <div
-            style={{ width: "50vw", height: "200px", backgroundColor: "blue" }}
-          ></div>
-          <div
-            style={{ width: "50vw", height: "200px", backgroundColor: "red" }}
-          ></div>
-          <div
-            style={{ width: "50vw", height: "200px", backgroundColor: "red" }}
+            style={{
+              width: "100%",
+              height: "200px",
+              backgroundColor: "#5EF3BE",
+            }}
           ></div>
           <div
             style={{
-              width: "50vw",
+              width: "100%",
               height: "200px",
-              backgroundColor: "blue",
+              backgroundColor: "#F0FF96",
+            }}
+          ></div>
+          <div
+            style={{
+              width: "100%",
+              height: "200px",
+              backgroundColor: "lightblue",
+            }}
+          >
+            {" "}
+            <img
+              style={{ width: "100%", height: "auto", objectFit: "contain" }}
+              src={EventoShots}
+            />
+          </div>
+          <div
+            style={{
+              width: "100%",
+              height: "200px",
+              backgroundColor: "grey",
+            }}
+          >
+            {" "}
+            <img
+              style={{ width: "100%", height: "auto", objectFit: "contain" }}
+              src={Cherrs}
+            />
+          </div>
+          <div
+            style={{
+              width: "100%",
+              height: "200px",
+              backgroundColor: "#F096FF",
             }}
           ></div>
         </div>
@@ -158,15 +196,15 @@ const Home = () => {
             gap: "10px",
           }}
         >
-          <div style={{ marginTop: "50px" }}>
+          <div style={{ marginTop: "50px", maxWidth: "800px" }}>
             <h2 id="bebidas" style={{ fontSize: "40px", margin: "0px" }}>
               Servicios
             </h2>
             <hr
               style={{
-                width: "60vw",
+                width: "80%",
                 border: "1px solid black",
-                marginTop: "-5px",
+                marginTop: "10px",
               }}
             />
           </div>
@@ -197,7 +235,7 @@ const Home = () => {
               alt="Cocktail"
             />
             <h3 style={{ margin: "0px" }}>BEBIDAS</h3>
-            <p style={{ width: "80vw" }}>
+            <p style={{ width: "80vw", maxWidth: "500px" }}>
               Nuestra selección de bebidas es insuperable. Ofrecemos una amplia
               gama de opciones, incluyendo cócteles artesanales, bebidas sin
               alcohol y refrescantes mezclas. Cada bebida es elaborada con los
@@ -227,7 +265,14 @@ const Home = () => {
             </button>
           </div>
 
-          <hr id="shots" style={{ width: "60vw", border: "1px solid black" }} />
+          <hr
+            id="shots"
+            style={{
+              width: "60vw",
+              border: "1px solid black",
+              maxWidth: "500px",
+            }}
+          />
 
           <div
             style={{
@@ -255,7 +300,7 @@ const Home = () => {
               alt="Cocktail"
             />
             <h3 style={{ margin: "0px" }}>SHOTS</h3>
-            <p style={{ width: "80vw" }}>
+            <p style={{ width: "80vw", maxWidth: "500px" }}>
               Nuestra barra de shots es el corazón de la fiesta. Ofrecemos una
               selección variada de shots, desde los clásicos hasta creaciones
               exclusivas, todos elaborados con los mejores ingredientes. ¡Haz
@@ -287,7 +332,11 @@ const Home = () => {
 
           <hr
             id="snacks"
-            style={{ width: "60vw", border: "1px solid black" }}
+            style={{
+              width: "60vw",
+              border: "1px solid black",
+              maxWidth: "500px",
+            }}
           />
 
           <div
@@ -316,7 +365,7 @@ const Home = () => {
               alt="Cocktail"
             />
             <h3 style={{ margin: "0px" }}>SNACKS</h3>
-            <p style={{ width: "80vw" }}>
+            <p style={{ width: "80vw", maxWidth: "500px" }}>
               Disfruta de nuestros exquisitos snacks, perfectos para cualquier
               tipo de evento. Ya sea que prefieras algo salado, dulce o una
               mezcla de ambos, tenemos lo que necesitas.
@@ -345,8 +394,15 @@ const Home = () => {
           </div>
         </div>
 
-        <div>
-          <h2>Reseñas</h2>
+        <div style={{ marginTop: "50px", maxWidth: "800px", height: "200px" }}>
+          <h2 style={{ fontSize: "40px", margin: "0px" }}>Reseñas</h2>
+          <hr
+            style={{
+              width: "80%",
+              border: "1px solid black",
+              marginTop: "10px",
+            }}
+          />
         </div>
       </div>
     </>
