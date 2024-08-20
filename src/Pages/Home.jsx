@@ -34,6 +34,22 @@ const Home = () => {
 
       <div
         style={{
+          width: "100vw",
+          height: "auto",
+          maxHeight: "630px",
+
+          overflow: "hidden",
+          zIndex: "9",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Carousel slides={[BannerShot, BlueShot]} />
+      </div>
+
+      <div
+        style={{
           backgroundImage: `url(${Textura20})`,
 
           height: "100vh",
