@@ -10,6 +10,8 @@ const Header = () => {
       style={{
         backgroundColor: "black",
 
+        width: "100vw",
+
         height: "60px",
 
         display: "flex",
@@ -28,20 +30,23 @@ const Header = () => {
         zIndex: "10",
       }}
     >
-      <i className="material-icons">menu</i>
+      <i style={{ cursor: "pointer" }} className="material-icons">
+        menu
+      </i>
       <img
         style={{
           height: "60px",
           width: "60px",
           objectFit: "contain",
           borderRadius: "50%",
+          cursor: "pointer",
         }}
         onClick={() => navigate("/")}
         src={Logo}
         alt="Logo"
       />
 
-      <div onClick={() => navigate("/carrito")}>
+      <div style={{ cursor: "pointer" }} onClick={() => navigate("/carrito")}>
         {" "}
         <i className="material-icons">shopping_bag</i>
         <sub
